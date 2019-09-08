@@ -54,7 +54,7 @@ def predict():
 
 
     # fitting on train data
-    spam_detect_model = MultinomialNB().fit(message_tfidf, messages['label'])
+    # spam_detect_model = MultinomialNB().fit(message_tfidf, messages['label'])
 
     #app.py from here
     #message from form
@@ -71,7 +71,7 @@ def predict():
     #predictiong through the model
     predictions = model.predict(data)
 
-    return render_template('index.html', prediction_text='The text message is {}'.format(predictions))
+    return render_template('index.html', prediction_text='The text message is {}'.format(predictions[0]))
 
 
 
