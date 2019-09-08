@@ -2,8 +2,8 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
 import string
-import nltk
-from nltk.corpus import stopwords
+# import nltk
+# from nltk.corpus import stopwords
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
