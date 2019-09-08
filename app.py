@@ -1,15 +1,15 @@
-import numpy as np
-from flask import Flask, request, jsonify, render_template
-import pickle
-import string
-# import nltk
-# from nltk.corpus import stopwords
-import pandas as pd
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
+# import numpy as np
+# from flask import Flask, request, jsonify, render_template
+# import pickle
+# import string
+# # import nltk
+# # from nltk.corpus import stopwords
+# import pandas as pd
+# from sklearn.feature_extraction.text import CountVectorizer
+# from sklearn.feature_extraction.text import TfidfTransformer
+# from sklearn.naive_bayes import MultinomialNB
+# from sklearn.model_selection import train_test_split
+# from sklearn.pipeline import Pipeline
 
 app = Flask(__name__)
 
