@@ -5,6 +5,7 @@ import string
 import nltk
 from nltk.corpus import stopwords
 import pandas as pd
+from model import text_process
 # from sklearn.feature_extraction.text import CountVectorizer
 # from sklearn.feature_extraction.text import TfidfTransformer
 # from sklearn.naive_bayes import MultinomialNB
@@ -17,10 +18,10 @@ app = Flask(__name__)
 # pickle.dump(vectorMatrix, open('vectorMatrix.pkl', 'wb'))
 # pickle.dump(tfidf, open('tfidf.pkl', 'wb'))
 
-def text_process(mess):
-    no_punc = [c for c in mess if c not in string.punctuation]
-    no_punc = ''.join(no_punc)
-    return [word for word in no_punc.split(' ') if word.lower() not in stopwords.words('english')]
+# def text_process(mess):
+#     no_punc = [c for c in mess if c not in string.punctuation]
+#     no_punc = ''.join(no_punc)
+#     return [word for word in no_punc.split(' ') if word.lower() not in stopwords.words('english')]
 
 model = pickle.load(open('model.pkl', 'rb'))
 vectorMatrix = pickle.load(open('vectorMatrix.pkl', 'rb'))
