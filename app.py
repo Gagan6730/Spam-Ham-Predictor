@@ -13,13 +13,19 @@ from sklearn.pipeline import Pipeline
 
 app = Flask(__name__)
 
-model = pickle.load(open('model.pkl', 'rb'))
 
+# pickle.dump(vectorMatrix, open('vectorMatrix.pkl', 'wb'))
+# pickle.dump(tfidf, open('tfidf.pkl', 'wb'))
 
 def text_process(mess):
     no_punc = [c for c in mess if c not in string.punctuation]
     no_punc = ''.join(no_punc)
     return [word for word in no_punc.split(' ') if word.lower() not in stopwords.words('english')]
+
+model = pickle.load(open('model.pkl', 'rb'))
+vectorMatrix = pickle.load(open('vectorMatrix.pkl', 'rb'))
+tfidf = pickle.load(open('tfidf.pkl', 'rb'))
+
 pipeline = Pipeline([
     # strings to token integer counts
     ('vectorMatrix', CountVectorizer(analyzer=text_process)),
@@ -36,17 +42,17 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    messages = pd.read_csv('smsspamcollection/SMSSpamCollection', sep='\t',
-                           names=["label", "message"])
+    # messages = pd.read_csv('smsspamcollection/SMSSpamCollection', sep='\t',
+    #                        names=["label", "message"])
     
-    vectorMatrix = CountVectorizer(analyzer=text_process)
+    # vectorMatrix = CountVectorizer(analyzer=text_process)
 
 
-    messageVector = vectorMatrix.fit_transform(messages['message'])
+    # messageVector = vectorMatrix.fit_transform(messages['message'])
 
-    #tfidf
-    tfidf = TfidfTransformer()
-    message_tfidf = tfidf.fit_transform(messageVector)
+    # #tfidf
+    # tfidf = TfidfTransformer()
+    # message_tfidf = tfidf.fit_transform(messageVector)
 
     #train test split
     # msg_train, msg_test, label_train, label_test = train_test_split(

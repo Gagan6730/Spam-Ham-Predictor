@@ -40,7 +40,8 @@ spam_detect_model = MultinomialNB().fit(message_tfidf, messages['label'])
 # print('prediction \n',len(prediction))
 
 pickle.dump(spam_detect_model, open('model.pkl', 'wb'))
-
+pickle.dump(vectorMatrix, open('vectorMatrix.pkl', 'wb'))
+pickle.dump(tfidf, open('tfidf.pkl', 'wb'))
 pipeline = Pipeline([
     # strings to token integer counts
     ('vectorMatrix', CountVectorizer(analyzer=text_process)),
