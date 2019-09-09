@@ -3,7 +3,6 @@ numpy==1.15.4
 pandas==0.24.1
 pytz==2018.4
 pyzmq==18.0.1
-requests==2.18.4
 scikit-learn==0.21.1
 sklearn==0.0
 
