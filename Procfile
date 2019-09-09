@@ -1,1 +1,1 @@
-web: gunicorn deploy:app
+web: python3 app.py runserver http://127.0.0.1:5000
