@@ -5,11 +5,11 @@ import string
 import nltk
 from nltk.corpus import stopwords
 import pandas as pd
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
+# from sklearn.feature_extraction.text import CountVectorizer
+# from sklearn.feature_extraction.text import TfidfTransformer
+# from sklearn.naive_bayes import MultinomialNB
+# from sklearn.model_selection import train_test_split
+# from sklearn.pipeline import Pipeline
 
 app = Flask(__name__)
 
@@ -25,12 +25,6 @@ def text_process(mess):
 model = pickle.load(open('model.pkl', 'rb'))
 vectorMatrix = pickle.load(open('vectorMatrix.pkl', 'rb'))
 tfidf = pickle.load(open('tfidf.pkl', 'rb'))
-
-pipeline = Pipeline([
-    # strings to token integer counts
-    ('vectorMatrix', CountVectorizer(analyzer=text_process)),
-    ('tfidf', TfidfTransformer())
-])
 
 @app.route('/')
 def home():
