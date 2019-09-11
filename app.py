@@ -5,7 +5,7 @@ import string
 import nltk
 from nltk.corpus import stopwords
 import pandas as pd
-from model import text_process
+from text_process import text_process
 # from sklearn.feature_extraction.text import CountVectorizer
 # from sklearn.feature_extraction.text import TfidfTransformer
 # from sklearn.naive_bayes import MultinomialNB
